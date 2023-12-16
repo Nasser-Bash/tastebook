@@ -1,6 +1,6 @@
 import React ,{useEffect,useState}from 'react'
-import HeroSection3 from "../componets/sections/HeroSection3";
-import OurStory from "../componets/sections/OurStory";
+import HeroSection3 from "../components/sections/HeroSection3";
+import OurStory from "../components/sections/OurStory";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight ,faCaretLeft,faCaretRight  } from "@fortawesome/free-solid-svg-icons";
 import useBgImage from "../hooks/useBgImage";

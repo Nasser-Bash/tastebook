@@ -1,13 +1,13 @@
 import React from 'react'
-import HeroSection2 from "../componets/sections/HeroSection2";
-import Sidebar from "../componets/layout/Sidebar";
-import Review from "../componets/sections/Review";
-import RelatedItems from "../componets/sections/RelatedItems";
+import HeroSection2 from "../components/sections/HeroSection2";
+import Sidebar from "../components/layout/Sidebar";
+import Review from "../components/sections/Review";
+import RelatedItems from "../components/sections/RelatedItems";
 import { useParams } from 'react-router-dom';
 import { useDispatch,useSelector} from "react-redux";
 import { getItemdetails  } from "../Redux/action/actions";
 import { useEffect , useState } from 'react';
-import Cards2 from "../componets/widgets/cards2";
+import Cards2 from "../components/widgets/cards2";
 import { Row ,Form} from 'react-bootstrap';
 import useAddToCart from "../hooks/useAddToCart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,6 +25,8 @@ function Singleproduct() {
         dispatch(getItemdetails(itemID.id));
         setsearch_view(false);
     }, [itemID.id]);
+
+    
    
     const additem =  (e) =>{
         setquantity(e.target.value)

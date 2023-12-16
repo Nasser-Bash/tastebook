@@ -1,17 +1,17 @@
-import React ,{useEffect,useState}from 'react'
-import HeroSection2 from "../componets/sections/HeroSection2";
+import React ,{useEffect,useMemo,useState}from 'react'
+import HeroSection2 from "../components/sections/HeroSection2";
 import { useDispatch , useSelector } from "react-redux";
 import {getAllCategories,getItems,addToCart} from "../Redux/action/actions";
 import Tab from "@material-ui/core/Tab";
 import {TabContext, TabPanel ,TabList} from "@mui/lab";
 import { Box } from '@material-ui/core';
 import { Col,Row } from 'react-bootstrap';
-import Cards  from "../componets/widgets/cards";
-import Pagintaion from "../componets/widgets/Pagintaion";
-import Cards3 from "../componets/widgets/card3";
+import Cards  from "../components/widgets/cards";
+import Pagintaion from "../components/widgets/Pagintaion";
+import Cards3 from "../components/widgets/card3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight  ,faList  } from "@fortawesome/free-solid-svg-icons";
-import { Grid3x3Gap } from 'react-bootstrap-icons';
+
 function Menu() {
     const [categories, setcategories] = useState([]);
     const [isLoading, setLoading] = useState(true);
@@ -32,12 +32,13 @@ function Menu() {
     dispatch(getAllCategories(setLoading));
     
   }, []);
-    useEffect(() => {
+    useMemo(() => {
       setcategories(categories_List);
     }, [categories_List]);
 
     useEffect(() => {
         dispatch(getItems(value,setLoading));
+      
       }, [value]);
 
  
@@ -78,7 +79,7 @@ function Menu() {
                                 <ul className='d-flex mt-2  mb-1  display-list'>
                                     <li className={`me-2 p-1  list ${gridStyle===false ? "active" : ""}`} onClick={()=>setgirdStyle(false)}><i className=''><FontAwesomeIcon icon={faList}/></i></li>
 
-                                    <li style={{padding:"2px"}} className={`me-2  list ${gridStyle===true ? "active" : ""}`} onClick={()=>setgirdStyle(true)}><i className=''><Grid3x3Gap/></i></li>
+                                    <li className={`me-2 p-1 list ${gridStyle===true ? "active" : ""}`} onClick={()=>setgirdStyle(true)}><i className=''><FontAwesomeIcon icon={faArrowRight}/></i></li>
                                 </ul>
                                 
                              
@@ -86,7 +87,7 @@ function Menu() {
                                             categories.map((category)=>{
                                                 return(
                                                     
-                <TabPanel className={`hero-menu_content fl-wrap mt-2 ${gridStyle===true ? 'hero-menu_content_gird':"" }`}  value={category.strCategory}>
+            <TabPanel className={`hero-menu_content mt-2 ${gridStyle===true ? 'hero-menu_content_gird':"" }`}  value={category.strCategory}>
                 
                  <Row >
                  {currentitem.map((item) => {

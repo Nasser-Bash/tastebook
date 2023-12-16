@@ -1,5 +1,5 @@
 import React ,{useEffect,useState}from 'react'
-import HeroSection2 from "../componets/sections/HeroSection2";
+import HeroSection2 from "../components/sections/HeroSection2";
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -32,7 +32,7 @@ const updateitem = (e,id)=>{
     
   return (
     <div id='wrapper'>
-    <HeroSection2 title="Your Cart"/>
+    <HeroSection2/>
     <div className="content">
     <section className="hidden-section">
                         <div className="container">

@@ -1,11 +1,11 @@
-import TopHeader from "./componets/layout/TopHeader";
-import Header from "./componets/layout/Header";
-import Footer from "./componets/layout/Footer";
+import TopHeader from "./components/layout/TopHeader";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import { BrowserRouter } from "react-router-dom";
 import MainRoutes from "./Routes/MainRoutes";
 import { useState , useEffect } from "react";
 import UseBackToTop from "./hooks/useBackToTop";
-import Fade from 'react-reveal/Fade';
+
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -16,11 +16,17 @@ function App() {
   }, []);
 
 if (isLoading) {
-  return <span className="loader"></span>;
+  return  <div className="loader-wrap">
+              <div className="loader-item">
+               <div className="cd-loader-layer" data-frame="25">
+          <div className="loader-layer"></div>
+      </div>
+      <span className="loader"></span>
+  </div>
+</div>;
 }
   return (
-    <div className="App"> 
-     <Fade>
+    <div className="App">
       <BrowserRouter>
       <UseBackToTop />
         <TopHeader/>
@@ -28,9 +34,7 @@ if (isLoading) {
         <MainRoutes/>
         <Footer/>
       </BrowserRouter>
-    </Fade>
     </div>
-   
   );
 }
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import HeroSection2 from "../componets/sections/HeroSection2";
-import GallerySlider from "../componets/sections/GallerySlider";
-import OurChefs from "../componets/sections/OurChefs";
-import Testimonials from "../componets/sections/Testimonials";
+import HeroSection2 from "../components/sections/HeroSection2";
+import GallerySlider from "../components/sections/GallerySlider";
+import OurChefs from "../components/sections/OurChefs";
+import Testimonials from "../components/sections/Testimonials";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight  ,faPlay } from "@fortawesome/free-solid-svg-icons";
 import useBgImage from "../hooks/useBgImage";
@@ -10,7 +10,7 @@ function About() {
   useBgImage();
   return (
     <div id='wrapper'>
-    <HeroSection2 title="About our Restaurant"/>
+    <HeroSection2/>
     <div className="content">
     <section className="hidden-section big-padding" data-scrollax-parent="true">
                         <div className="container">

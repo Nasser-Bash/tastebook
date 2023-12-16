@@ -61,7 +61,7 @@ html {
 	z-index:100;
 	display: block;
 	animation: vanish 0.3s ease forwards;
-	
+
 }
 .loader {
 	position: absolute;
@@ -4882,9 +4882,7 @@ a{
 	background-color: #c19d60;
 	color: #292929;
   }
-  .css-ttwr4n{
-	background-color:#C19D60 !important;
-  }
+
 /* .display-list li i {
 
 

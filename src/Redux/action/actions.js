@@ -13,6 +13,7 @@ export const getAllCategories = (setLoading)=>{
 export const getItems = (category,setLoading)=>{
     return async (dispatch) =>{
         const repos = await axios.get(`${api.baseUrl}/${api.type.filter}?c=${category}`);
+    
         setLoading(false)
         dispatch({type: items , data:repos.data.meals})
    
