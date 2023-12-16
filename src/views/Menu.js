@@ -10,7 +10,7 @@ import Cards  from "../components/widgets/cards";
 import Pagintaion from "../components/widgets/Pagintaion";
 import Cards3 from "../components/widgets/card3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight  ,faList  } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsisVertical  ,faList  } from "@fortawesome/free-solid-svg-icons";
 
 function Menu() {
     const [categories, setcategories] = useState([]);
@@ -70,7 +70,13 @@ function Menu() {
                                         {
                                             categories.map((category)=>{
                                                 return(
-                                                    <Tab className='current ' value={category.strCategory} label={category.strCategory} />   
+                                                    <Tab className='current ' value={category.strCategory} label={category.strCategory}
+                                                    sx={{
+                                                        '&.Mui-selected': {
+                                                          borderBottom: '2px solid #c19d60 !important', // 
+                                                        },
+                                                      }}
+                                                    />   
                                                 )
                                             })
                                         }
@@ -79,7 +85,11 @@ function Menu() {
                                 <ul className='d-flex mt-2  mb-1  display-list'>
                                     <li className={`me-2 p-1  list ${gridStyle===false ? "active" : ""}`} onClick={()=>setgirdStyle(false)}><i className=''><FontAwesomeIcon icon={faList}/></i></li>
 
-                                    <li className={`me-2 p-1 list ${gridStyle===true ? "active" : ""}`} onClick={()=>setgirdStyle(true)}><i className=''><FontAwesomeIcon icon={faArrowRight}/></i></li>
+                                    <li className={`me-2  py-2 list ${gridStyle===true ? "active" : ""}`} onClick={()=>setgirdStyle(true)}><i className='d-flex justify-content-center '>
+                                    <FontAwesomeIcon icon={faEllipsisVertical}/>
+                                    <FontAwesomeIcon icon={faEllipsisVertical}/>
+                                    <FontAwesomeIcon icon={faEllipsisVertical}/>
+                                    </i></li>
                                 </ul>
                                 
                              
