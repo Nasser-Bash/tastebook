@@ -103,7 +103,7 @@ function Menu() {
                  <Row >
                  {currentitem.map((item) => {
                     return (
-                        <Col sm={6} md={4}>
+                         <Col md={6} lg={4}>
                          <Cards3 title={item.strMeal} id={item.idMeal} image={item.strMealThumb} />
                         </Col>
                     );
