@@ -66,7 +66,7 @@ function Menu() {
                              <Box className="">
                              <TabContext  value={value}>
                                 <TabList
-                                   
+                                      TabIndicatorProps={{ style: { backgroundColor: "#C19D60" } }}
                                     className='  p-2 '
                                     onChange={handleChange}
                                     variant="scrollable"
@@ -82,7 +82,7 @@ function Menu() {
                                             categories.map((category)=>{
                                                 return(
                                                     <Tab 
-                                                TabIndicatorProps={{ style: { backgroundColor: "#C19D60" } }}
+                                             
                                                     classes={{ selected: classes.activeTab }} value={category.strCategory} label={category.strCategory}
                                                     
                                                     />   
