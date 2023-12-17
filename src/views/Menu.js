@@ -81,7 +81,9 @@ function Menu() {
                                         {
                                             categories.map((category)=>{
                                                 return(
-                                                    <Tab  classes={{ selected: classes.activeTab }} value={category.strCategory} label={category.strCategory}
+                                                    <Tab 
+                                                TabIndicatorProps={{ style: { backgroundColor: "#C19D60" } }}
+                                                    classes={{ selected: classes.activeTab }} value={category.strCategory} label={category.strCategory}
                                                     
                                                     />   
                                                 )
