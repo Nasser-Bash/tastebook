@@ -6,7 +6,9 @@ function HeroSection() {
   return (
     
     <div className="hero-wrap fl-wrap full-height" data-scrollax-parent="true">
-    <img className="bg par-elem "  src="/images/bg/2.jpg" />
+    <img className="bg par-elem "  src="/images/bg/2.jpg" style={{
+        ObjectFit:"cover"
+    }} />
     <div className="overlay"></div>
     <div className="hero-title-wrap fl-wrap">
         <div className="container">

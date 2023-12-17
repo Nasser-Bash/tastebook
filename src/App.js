@@ -16,7 +16,7 @@ function App() {
   }, []);
 
 if (isLoading) {
-  return  <div className="loader-wrap">
+  return  <div className="loader-wra ">
               <div className="loader-item">
                <div className="cd-loader-layer" data-frame="25">
           <div className="loader-layer"></div>

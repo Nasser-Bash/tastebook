@@ -4,14 +4,20 @@ import { useDispatch , useSelector } from "react-redux";
 import {getAllCategories,getItems,addToCart} from "../Redux/action/actions";
 import Tab from "@material-ui/core/Tab";
 import {TabContext, TabPanel ,TabList} from "@mui/lab";
-import { Box } from '@material-ui/core';
+import { Box, makeStyles } from '@material-ui/core';
 import { Col,Row } from 'react-bootstrap';
-import Cards  from "../components/widgets/cards";
+
 import Pagintaion from "../components/widgets/Pagintaion";
 import Cards3 from "../components/widgets/card3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical  ,faList  } from "@fortawesome/free-solid-svg-icons";
-
+const useStyles = makeStyles((theme) => ({
+    activeTab: {
+      color: '#C19D60 !important', // Change the color to your desired color
+      borderBottom:'red !important' // Change the background color to your desired color
+    },
+    
+  }));
 function Menu() {
     const [categories, setcategories] = useState([]);
     const [isLoading, setLoading] = useState(true);
@@ -20,7 +26,6 @@ function Menu() {
         setValue(newValue);
        
       };
-    const [gridStyle, setgirdStyle] = useState(false);
    const dispatch = useDispatch();
    const categories_List = useSelector((state=>state.categories.categories));
    const items_List = useSelector((state=>state.items.items));
@@ -41,7 +46,8 @@ function Menu() {
       
       }, [value]);
 
- 
+
+      const classes = useStyles();
   return (
     <div id='wrapper'>
              <HeroSection2 title="Discover Our menu"/>
@@ -66,48 +72,37 @@ function Menu() {
                                     variant="scrollable"
                                     scrollButtons="auto"
                                     aria-label="scrollable auto tabs example"
+                                    sx={{
+                                        '&:not(.Mui-selected)': {
+                                          color: '#C19D60', // Change the color to your desired color for non-active tabs
+                                        },
+                                      }}
                                     >
                                         {
                                             categories.map((category)=>{
                                                 return(
-                                                    <Tab className='current ' value={category.strCategory} label={category.strCategory}
-                                                    sx={{
-                                                        '&.Mui-selected': {
-                                                          borderBottom: '2px solid #c19d60 !important', // 
-                                                        },
-                                                      }}
+                                                    <Tab  classes={{ selected: classes.activeTab }} value={category.strCategory} label={category.strCategory}
+                                                    
                                                     />   
                                                 )
                                             })
                                         }
                           
                                 </TabList>
-                                <ul className='d-flex mt-2  mb-1  display-list'>
-                                    <li className={`me-2 p-1  list ${gridStyle===false ? "active" : ""}`} onClick={()=>setgirdStyle(false)}><i className=''><FontAwesomeIcon icon={faList}/></i></li>
-
-                                    <li className={`me-2  py-2 list ${gridStyle===true ? "active" : ""}`} onClick={()=>setgirdStyle(true)}><i className='d-flex justify-content-center '>
-                                    <FontAwesomeIcon icon={faEllipsisVertical}/>
-                                    <FontAwesomeIcon icon={faEllipsisVertical}/>
-                                    <FontAwesomeIcon icon={faEllipsisVertical}/>
-                                    </i></li>
-                                </ul>
+                           
                                 
                              
                                 {
                                             categories.map((category)=>{
                                                 return(
                                                     
-            <TabPanel className={`hero-menu_content mt-2 ${gridStyle===true ? 'hero-menu_content_gird':"" }`}  value={category.strCategory}>
+            <TabPanel className={` mt-2 hero-menu_content_gird`}  value={category.strCategory}>
                 
                  <Row >
                  {currentitem.map((item) => {
                     return (
-                        <Col md={gridStyle ? 4 : 6}>
-                        {gridStyle ? (
-                    <Cards3 title={item.strMeal} id={item.idMeal} image={item.strMealThumb} />
-                    ) : (
-                    <Cards title={item.strMeal} id={item.idMeal} image={item.strMealThumb} />
-                    )}
+                        <Col md={4}>
+                         <Cards3 title={item.strMeal} id={item.idMeal} image={item.strMealThumb} />
                         </Col>
                     );
                     })}

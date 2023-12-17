@@ -4799,6 +4799,7 @@ section {
 		background-attachment: scroll !important;
 		-webkit-background-size: cover;
 		background-position: center;
+		object-fit: cover;
 	}
 }
 .css-1ujnqem-MuiTabs-root{
